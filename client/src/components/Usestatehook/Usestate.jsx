@@ -4,8 +4,19 @@ function Usestate() {
   let Color = 'Red'
   const [color, setColor] = useState(Color); // string
 
+  // number
   let Counter = 0;
   const [counter, setCounter] = useState(Counter); // number
+
+  const increaseCount = () => {
+    setCounter(counter => counter + 1) // 1
+    setCounter(counter => counter + 1) // 2
+    setCounter(counter => counter + 1) // 3
+    setCounter(counter => counter + 1) // 4
+  }
+
+
+  // object
 
   // const [car, setCar] = useState('Ferrari')
   // const [brand, setBrand] = useState('Ferrari')
@@ -21,21 +32,35 @@ function Usestate() {
   })
 
   // appraoch 1
-  const changeColor = () => {
-    const a = setCar({
-      brand: 'Ford',
-      model: 'Cryta',
-      year: '2025',
-      color: 'Green'
+  // const changeColor = () => {
+  //   const a = setCar({
+  //     brand: 'Ford',
+  //     model: 'Cryta',
+  //     year: '2025',
+  //     color: 'Green'
+  //   })
+  // }
+
+   // appraoch 2
+   const changeColor = () => {
+    console.log(car)
+    const a = setCar((car) => {
+      return {...car, color: 'blue'}
     })
   }
 
   return (
     <>
+      {/* string and number */}
       <div>
-        <h1>This color is {color} count {counter}</h1>
+        <h1>This color is {color}</h1>
         <button onClick={() => setColor('Blue')}>change</button>  {/* string */}
-        <button onClick={() => setCounter(counter + 1)}>count</button> {/* number */}
+        {/* <button onClick={() => setCounter(counter + 1)}>count</button> number */}
+      </div>
+      {/* number */}
+      <div>
+        <h1>Count :{counter}</h1>
+        <button onClick={increaseCount}>increase</button>
       </div>
       {/* object */}
       <div>
