@@ -1,4 +1,5 @@
 import './App.css'
+import Useefffect from './components/UseEffecthook/Useefffect'
 import Usestate from './components/Usestatehook/Usestate'
 
 function App() {
@@ -6,7 +7,8 @@ function App() {
   return (
     <>
       <div>
-        <Usestate />
+        {/* <Usestate /> */}
+        <Useefffect />
       </div>
     </>
   )
